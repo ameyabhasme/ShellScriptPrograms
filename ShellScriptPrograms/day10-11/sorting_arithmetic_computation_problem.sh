@@ -1,4 +1,5 @@
 #!/bin/bash
+
 read -p "enter the 1st no:" a
 read -p "enter the 2nd no:" b
 read -p "enter the 3rd no:" c
@@ -35,21 +36,19 @@ function sorting_Array_inDecending_order()
    do
       for (( j=$i+1; j<4; j++ ))
       do
-         if [[ ${arr[i]} -lt ${arr[j]} ]] 
+         if [[ ${arr[i]} -lt ${arr[j]} ]]
          then
               temp=${arr[i]}
               arr[i]=${arr[j]}
               arr[j]=$temp
          fi
-     done
-      done
-   #done
+     	done
+    done
    echo ${arr[@]}
 }
 
 res="$( sorting_Array_inDecending_order ${arr[@]} )"
-echo "decending order is :$res"
-#echo "decending order is : $res"
+echo "decending order is : $res"
 
 function sorting_Array_inAscending_order()
 {

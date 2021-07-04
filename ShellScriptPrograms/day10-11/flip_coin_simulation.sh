@@ -15,15 +15,15 @@ do
    fi
    if [ $Head -gt 21 ]
    then
-        echo "Head is win"
+        echo "Head has won"
    break
    elif [ $Tail -gt 21 ]
    then
-        echo "Tail is win"
+        echo "Tail has won"
    break
    elif [ $Head -ge 21 ] && [ $Tail -ge 21 ]
    then
-        echo "Match is Tie"
+        echo "Match Tied"
    break
 
    for((  i=0; ;i++ ))

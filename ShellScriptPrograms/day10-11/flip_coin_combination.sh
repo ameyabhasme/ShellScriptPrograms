@@ -11,7 +11,15 @@ function flip_coin()
   for (( i=1; i<=no_of_toss; i++ ))
   do
      coinface=""
-#@@ -22,6 +23,11 @@ #function flip_coin()
+     for (( j=1; j<=no_of_coins; j++ ))
+     do
+         toss=$((RANDOM%2))
+         if [ $toss -eq 0 ]
+         then
+              coinface+=head
+         else
+              coinface+=tail
+         fi
      done
      echo $coinface
      coin[$coinface]=$((${coin[$coinface]}+1))
@@ -21,24 +29,19 @@ function flip_coin()
           echo $maximum
      fi
      per $coinface
-  #done
+  done
   echo "${!coin[@]}"
-#@@ -30,14 +36,14 @@ #function flip_coin()
+  echo "${coin[@]}"
 }
+
 function per()
 {
-   per=$((${coin[$coinface]}*100/$no_of_toss))
-   pertoss[$coinface]=$per
-   echo "key ${!pertoss[@]}"
-   echo "pecent ${pertoss[@]}"
   per=$((${coin[$coinface]}*100/$no_of_toss))
   pertoss[$coinface]=$per
   echo "key ${!pertoss[@]}"
   echo "pecent ${pertoss[@]}"
 }
 
-read -p "enter the no of toss:  " no_of_toss
-read -p "enter the no of coins: " no_of_coins
 read -p "enter the no of toss :" no_of_toss
 read -p "enter the no of coins:" no_of_coins
 
